@@ -33,9 +33,9 @@ public class Main {
         }
 
         // Add new students using user input
-        Student.addStudents(2);                 // Add students
-        Student.sortStudentsUsingComparator();  // Sort using comparator
-        Student.printAllStudents();             // Print sorted list
+        // Student.addStudents(2);                 // Add students
+        // Student.sortStudentsUsingComparator();  // Sort using comparator
+        // Student.printAllStudents();             // Print sorted list
 
     }
 }
