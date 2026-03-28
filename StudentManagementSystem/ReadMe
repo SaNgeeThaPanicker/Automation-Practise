@@ -1,0 +1,80 @@
+# 🎓 Student Management System (Java Console Application)
+
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge\&logo=java\&logoColor=white)
+![OOP](https://img.shields.io/badge/OOP-Concepts-blue?style=for-the-badge)
+![Collections](https://img.shields.io/badge/Collections-ArrayList-green?style=for-the-badge)
+![Status](https://img.shields.io/badge/Project-Completed-brightgreen?style=for-the-badge)
+
+---
+
+## 📌 Overview
+
+A **Java console-based application** designed to manage student records efficiently.
+The system supports **student creation, course enrollment, searching, and sorting using custom Comparator logic**.
+
+---
+
+## 🚀 Key Features
+
+* ➕ Add multiple students dynamically
+* 📚 Enroll students in multiple courses
+* 🔍 Search student using unique ID
+* 📊 Sort students by name using `Comparator`
+* 🖥️ Display structured student data
+
+---
+
+## 🧠 Tech Stack
+
+* Java
+* OOP (Encapsulation, Abstraction)
+* Collections Framework (`ArrayList`)
+* Comparator & Sorting
+* Scanner (User Input Handling)
+
+---
+
+## 🎯 ATS Keywords
+
+Java, OOP, Collections Framework, ArrayList, Comparator, Sorting Algorithms, Data Structures, Console Application, Object-Oriented Design, Clean Code, Exception Handling, CLI Application, Java Development
+
+---
+
+## 🏗️ Project Structure
+
+```java
+StudentManagementSystem/
+│── Main.java
+│── Student.java
+```
+
+---
+
+## ⚙️ Core Implementation
+
+### 🔹 Custom Sorting using Comparator
+
+```java
+public static void sortStudentsUsingComparator() {
+    Collections.sort(students, new Comparator<Student>() {
+        @Override
+        public int compare(Student s1, Student s2) {
+            return s1.getName().compareTo(s2.getName());
+        }
+    });
+}
+```
+
+---
+
+## ▶️ How to Run
+
+```bash
+javac Student.java
+java Student
+```
+
+---
+## 👩‍💻 Author
+
+Sangeetha Panicker
