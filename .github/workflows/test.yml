@@ -19,7 +19,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Compile Java code
-        run: javac -d . Automation-Practise/StudentManagementSystem/Main.java
+        run: javac . StudentManagementSystem/Main.java
 
       - name: Run Main Method
         run: java StudentManagementSystem.Main
