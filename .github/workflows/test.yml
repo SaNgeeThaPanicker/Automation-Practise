@@ -17,9 +17,8 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-
-      - name: Compile Java code
-        run: javac . StudentManagementSystem/Main.java
+      - name: Compile Java file
+        run: javac StudentManagementSystem/Main.java
 
       - name: Run Main Method
         run: java StudentManagementSystem.Main
