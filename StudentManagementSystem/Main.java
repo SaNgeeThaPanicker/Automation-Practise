@@ -32,6 +32,7 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        // Will be covered when user input is added
         // Add new students using user input
         // Student.addStudents(2);                 // Add students
         // Student.sortStudentsUsingComparator();  // Sort using comparator
