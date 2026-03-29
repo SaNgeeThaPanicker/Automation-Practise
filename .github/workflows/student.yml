@@ -3,6 +3,8 @@ name: Run Java Application
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'StudentManagementSystem/**'
 
 jobs:
   build-and-run:
@@ -17,6 +19,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+
       - name: Compile Java file
         run: javac StudentManagementSystem/Main.java
 
