@@ -20,7 +20,7 @@ public class BaseTest {
 
         // Load config
         prop = new Properties();
-        FileInputStream fis = new FileInputStream("config.properties");
+        FileInputStream fis = new FileInputStream("src/resources/config/config.properties");
         prop.load(fis);
 
         // Setup driver

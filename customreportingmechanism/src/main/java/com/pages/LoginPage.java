@@ -1,7 +1,12 @@
 package com.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
 
@@ -26,5 +31,17 @@ public class LoginPage {
     public void clickLogin() {
         driver.findElement(loginButton).click();
     }
+
+    public boolean isLoginSuccessful() {
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+    WebElement checkoutButton = wait.until(
+        ExpectedConditions.visibilityOfElementLocated(
+            By.cssSelector(".nav-link.btn.btn-primary")
+        )
+    );
+
+    return checkoutButton.isDisplayed();
+}
 
 }
