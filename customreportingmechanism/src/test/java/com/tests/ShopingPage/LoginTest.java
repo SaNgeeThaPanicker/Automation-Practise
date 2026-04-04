@@ -1,8 +1,9 @@
-package com.tests;
+package com.tests.ShopingPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.pages.LoginPage;
+import com.pages.ShopingPage.LoginPage;
+import com.tests.BaseTest;
 
 public class LoginTest extends BaseTest {
 

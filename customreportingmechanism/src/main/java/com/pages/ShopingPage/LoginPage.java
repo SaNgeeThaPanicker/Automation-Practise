@@ -1,4 +1,4 @@
-package com.pages;
+package com.pages.ShopingPage;
 
 import java.time.Duration;
 
@@ -8,12 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage {
+import com.base.BasePage;
 
-    WebDriver driver;
+public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     By usernameField = By.id("username");
@@ -21,15 +21,15 @@ public class LoginPage {
     By loginButton = By.id("signInBtn");
 
     public void enterUsername(String username) {
-        driver.findElement(usernameField).sendKeys(username);
+        enterText(usernameField, username);
     }
 
     public void enterPassword(String password) {
-        driver.findElement(passwordField).sendKeys(password);
+        enterText(passwordField, password);
     }
 
     public void clickLogin() {
-        driver.findElement(loginButton).click();
+        clickElement(loginButton);
     }
 
     public boolean isLoginSuccessful() {

@@ -23,6 +23,11 @@ public class Student {
         this.courses = new ArrayList<>();
     }
 
+    @Override
+    public String toString() {
+        return "Student{name='" + name + "', age=" + age + ", studentID='" + studentID + "', courses=" + courses + "}";
+    }
+
     public String getStudentID() {
         return studentID;
     }

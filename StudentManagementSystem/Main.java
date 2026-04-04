@@ -4,8 +4,12 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println("Welcome to the Student Management System!"  + "\n---------------------------------------");
+
+
         // Create sample students
         Student student1 = new Student("Alice", 20, "S12345");
+        System.out.println(student1);
         student1.enrollCourse("Mathematics");
         student1.enrollCourse("Computer Science");
         student1.printStudentInfo();
