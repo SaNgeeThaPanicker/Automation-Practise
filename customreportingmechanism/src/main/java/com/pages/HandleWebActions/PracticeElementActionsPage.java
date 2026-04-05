@@ -2,6 +2,7 @@ package com.pages.HandleWebActions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import com.base.BasePage;
 
@@ -12,8 +13,9 @@ public class PracticeElementActionsPage extends BasePage {
         this.driver = driver;
     }
 
-    By radioButtonValue1= By.cssSelector("input[value='radio1']");
-    By radioButtonValue2= By.cssSelector("input[value='radio2']");
+    private By radioButtonValue1= By.cssSelector("input[value='radio1']");
+    private By radioButtonValue2= By.cssSelector("input[value='radio2']");
+    private By dropDown = By.cssSelector("select[id^='dropdown-class-example']");
 
     public void selectRadioButton1() {
         selectRadioButtonByValue(radioButtonValue1,"radio1");
@@ -33,5 +35,11 @@ public class PracticeElementActionsPage extends BasePage {
 
     public String selectFromSuggestedDropdown(String inputText, String targetSelection) throws InterruptedException {
         return selectSuggestion(inputText, targetSelection);
+    }
+
+    public void selectFromDropdown(String visibleText) {
+        driver.findElement(dropDown).click();
+        Select dropdown = new Select(driver.findElement(By.id("dropdown-class-example")));
+        dropdown.selectByVisibleText(visibleText);
     }
 }
