@@ -2,7 +2,6 @@ package com.eventHubTest.tests;
 
 import org.testng.annotations.Test;
 import org.testng.Assert;
-import org.testng.annotations.Parameters;
 
 import com.eventHubMain.models.LoginRequest;
 import com.eventHubMain.models.LoginResponse;
@@ -15,7 +14,7 @@ import io.restassured.response.Response;
 public class LoginTest extends BaseTest {
 
     @Test
-    public String testLogin() {
+    public void testLogin() {
 
         LoginRequest request = new LoginRequest();
         request.setUsername(ConfigReader.get("username"));
@@ -29,7 +28,5 @@ public class LoginTest extends BaseTest {
 
         response.then().statusCode(200);
         Assert.assertNotNull(res.getToken(), "Token should not be null");
-        return res.getToken();
-
     }
 }

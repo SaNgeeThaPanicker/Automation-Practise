@@ -1,46 +1,51 @@
 package com.eventHubTest.clients;
-
+import com.eventHubMain.utils.AllureUtils;
 import com.eventHubMain.utils.ConfigReader;
 import com.eventHubTest.base.TokenManager;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 
 public class ApiClient {
 
     public static Response post(String path, Object body) {
 
-    RequestSpecification request = RestAssured
-            .given()
-            .baseUri(ConfigReader.get("baseUrl"))
-            .basePath(path)
-            .header("Content-Type", "application/json");
+        String requestBody = body.toString();
 
-    if (!path.contains("/auth/login")) {
-        request.header("Authorization", "Bearer " + TokenManager.getToken());
+        AllureUtils.attachRequest("POST Request", requestBody);
+
+        Response response = RestAssured
+                .given()
+                .baseUri(ConfigReader.get("baseUrl"))
+                .basePath(path)
+                .header("Content-Type", "application/json")
+                .body(body)
+                .when()
+                .post();
+
+        AllureUtils.attachResponse("Response", response.asPrettyString());
+
+        return response;
     }
-
-    return request
-            .body(body)
-            .when()
-            .post()
-            .then()
-            .extract()
-            .response();
-}
 
     public static Response get(String path) {
 
-        return RestAssured
+        AllureUtils.attachRequest("GET Request", "GET " + path);
+
+        Response response = RestAssured
                 .given()
                 .baseUri(ConfigReader.get("baseUrl"))
                 .basePath(path)
                 .header("Authorization", "Bearer " + TokenManager.getToken())
                 .when()
-                .get()   
+                .get()
                 .then()
                 .extract()
                 .response();
+
+        AllureUtils.attachResponse("GET Response", response.asPrettyString());
+
+        return response;
+
     }
 }
