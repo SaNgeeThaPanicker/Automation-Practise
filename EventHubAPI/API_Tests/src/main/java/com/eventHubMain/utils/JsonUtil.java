@@ -1,4 +1,6 @@
-package main.java.com.eventHubMain.utils;
+package com.eventHubMain.utils;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonUtil {
 

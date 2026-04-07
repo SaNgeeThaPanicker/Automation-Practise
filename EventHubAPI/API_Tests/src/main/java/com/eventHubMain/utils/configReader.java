@@ -1,26 +1,29 @@
-package com.eventHubMain;
-
-import java.io.FileInputStream;
+package com.eventHubMain.utils;
+import java.io.InputStream;
 import java.util.Properties;
 
-public class configReader {
+public class ConfigReader {
 
-    private static Properties properties;
+    private static Properties prop = new Properties(); 
 
     static {
         try {
-            FileInputStream fis = new FileInputStream(
-                "src/test/resources/config.properties"
-            ); 
-            properties = new Properties();
-            properties.load(fis);
+            prop = new Properties();
+            InputStream input = ConfigReader.class
+                    .getClassLoader()
+                    .getResourceAsStream("config.properties");
+
+            prop.load(input);
         } catch (Exception e) {
-            throw new RuntimeException("Failed to load config file");
+            e.printStackTrace();
         }
     }
 
     public static String get(String key) {
-        return properties.getProperty(key);
+        return prop.getProperty(key);
     }
 
+    public static void set(String string, String token) {
+        prop.setProperty(string, token);
+    }
 }

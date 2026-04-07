@@ -1,26 +1,22 @@
-package test.resources;
+package com.eventHubMain.utils;
+
 
 public class configManager {
 
-    String baseUrl = ConfigReader.get("base.url");
-    String token = System.getenv("API_TOKEN");
+    String baseUrl = ConfigReader.get("baseUrl");
+    String username = ConfigReader.get("username");
+    String password = ConfigReader.get("password");
+    String env = ConfigReader.get("env");
 
-    public static String getBaseUrl() {
-
-        String env = System.getProperty("env", "qa");
-
-        switch (env.toLowerCase()) {
-            case "qa":
-                return ConfigReader.get("qa.url");
-
-            case "stage":
-                return ConfigReader.get("stage.url");
-
-            case "prod":
-                return ConfigReader.get("prod.url");
-
-            default:
-                throw new RuntimeException("Invalid env");
+    public configManager() {
+        if(env.equals("qa")) {
+            baseUrl = ConfigReader.get("qaUrl");
+        } 
+        else if(env.equals("base")) {
+            baseUrl = ConfigReader.get("baseUrl");
+        }
+        else {
+            baseUrl = ConfigReader.get("uatUrl");
         }
     }
 }

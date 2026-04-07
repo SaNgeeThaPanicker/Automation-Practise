@@ -1,4 +1,4 @@
-package main.java.com.eventHubMain.utils;
+package com.eventHubMain.utils;
 
 public class DateUtil {
 
